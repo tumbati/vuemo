@@ -1,0 +1,33 @@
+{
+  "name": "vuemo",
+  "version": "0.0.1",
+  "description": "A command line tool for generating and managing Vue Modular application",
+  "bin": {
+    "vuemo": "index.js"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "create"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nejat-njonjo/vuemo.git"
+  },
+  "keywords": [
+    "vue-modular",
+    "vue",
+    "module"
+  ],
+  "author": "Nejat Mhango",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nejat-njonjo/vuemo/issues"
+  },
+  "homepage": "https://github.com/nejat-njonjo/vuemo#readme",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^8.1.0",
+    "conf": "^10.0.1",
+    "lodash": "^4.17.21"
+  }
+}
