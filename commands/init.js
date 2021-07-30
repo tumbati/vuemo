@@ -48,7 +48,7 @@ function init(...options) {
    * Move core folders and files into src folder
    */
   for (const element of srcContents) {
-    const movingContents = ['assets', 'components', 'router', 'store']
+    const movingContents = ['assets', 'components', 'router', 'store', 'store.js', 'router.js']
 
     if (movingContents.includes(element)) {
       const isDir = fs.statSync(`${currentPath}/src/${element}`).isDirectory()
@@ -65,6 +65,8 @@ function init(...options) {
             console.log(chalk.green(`${emoji.get('file')}: moved ${content} as ${element}.js to core`))
           })
         }
+      } else {
+
       }
     }
   }
