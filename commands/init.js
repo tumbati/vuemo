@@ -79,6 +79,11 @@ function init(...options) {
       }
     }
   }
+
+  /**
+   * Cleanup src folder
+   */
+  fs.rmdirSync(`${currentPath}/src/views`)
 }
 
 module.exports = init
