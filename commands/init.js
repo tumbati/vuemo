@@ -1,6 +1,7 @@
 const ls = require('../lib/list')
 const chalk = require('chalk')
 const fs = require('fs')
+const fse = require('fs-extra')
 const currentPath = process.cwd()
 const emoji = require('node-emoji')
 
@@ -57,16 +58,24 @@ function init(...options) {
         // If file is router or store and is directory, move contents
         const contents = ls({ path: `/src/${element}`, filter: null})
         for (const content of contents) {
-          fs.renameSync(`${currentPath}/src/${element}/${content}`, `${currentPath}/src/core/${element}.js`, (err) => {
-            if (err) {
-              console.log(err)
-              return
-            }
+          const source = `${currentPath}/src/${element}/${content}`
+          const destination = `${currentPath}/src/core/${element}.js`
+          fs.renameSync(source, destination, (err) => {
+            if (err) return console.log(err)
             console.log(chalk.green(`${emoji.get('file')}: moved ${content} as ${element}.js to core`))
           })
         }
+        
+        // Remove directory
+        fs.rmdirSync(`${currentPath}/src/${element}`)
       } else {
-
+        // Move directory to src/core
+        const source = `${currentPath}/src/${element}`
+        const destination = `${currentPath}/src/core/${element}`
+        fse.move(source, destination, (err) => {
+          if (err) return console.log(err)
+          console.log(chalk.green(`${emoji.get('file_folder')}: moved ${element} to core`))
+        })
       }
     }
   }
