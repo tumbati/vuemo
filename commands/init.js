@@ -81,9 +81,12 @@ function init(...options) {
   }
 
   /**
-   * Cleanup src folder
+   * Remove views folder recursively
    */
-  fs.rmdirSync(`${currentPath}/src/views`)
+  fs.rmdir(`${currentPath}/src/views`, (err) => {
+    if (err) return console.log(err)
+    console.log(chalk.green(`Removed views folder`))
+  })
 }
 
 module.exports = init
