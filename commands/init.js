@@ -1,4 +1,4 @@
-const ls = require('../lib/list')
+const {ls, rm} = require('../lib')
 const chalk = require('chalk')
 const fs = require('fs')
 const fse = require('fs-extra')
@@ -83,10 +83,7 @@ function init(...options) {
   /**
    * Remove views folder recursively
    */
-  fs.rmdir(`${currentPath}/src/views`, (err) => {
-    if (err) return console.log(err)
-    console.log(chalk.green(`Removed views folder`))
-  })
+  rm(`${currentPath}/src/views`)
 }
 
 module.exports = init
