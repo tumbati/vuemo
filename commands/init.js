@@ -72,6 +72,7 @@ function init(...options) {
         // Move directory to src/core
         const source = `${currentPath}/src/${element}`
         const destination = `${currentPath}/src/core/${element}`
+        
         fse.move(source, destination, (err) => {
           if (err) return console.log(err)
           console.log(chalk.green(`${emoji.get('file_folder')}: moved ${element} to core`))
