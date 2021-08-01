@@ -82,9 +82,14 @@ function init(...options) {
   }
 
   /**
-   * Remove views folder recursively
+   * Remove views folder recursively from src directory
    */
   rm(`${currentPath}/src/views`)
+
+  /**
+   * Create core module files
+   */
+  
 }
 
 module.exports = init
