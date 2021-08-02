@@ -1,5 +1,5 @@
-function createCore(srcDirPath) {
-  const coreDirectories = [
+function createAppCore(srcDirPath) {
+  const appCoreDirs = [
     'http',
     'helpers',
     'guards',
@@ -10,4 +10,4 @@ function createCore(srcDirPath) {
   ]
 }
 
-module.exports = createCore
+module.exports = createAppCore
