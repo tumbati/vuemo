@@ -1,4 +1,4 @@
-const ls = require('../lib/list')
+const {ls, rm} = require('../lib')
 const chalk = require('chalk')
 const fs = require('fs')
 const fse = require('fs-extra')
@@ -72,6 +72,7 @@ function init(...options) {
         // Move directory to src/core
         const source = `${currentPath}/src/${element}`
         const destination = `${currentPath}/src/core/${element}`
+        
         fse.move(source, destination, (err) => {
           if (err) return console.log(err)
           console.log(chalk.green(`${emoji.get('file_folder')}: moved ${element} to core`))
@@ -81,12 +82,14 @@ function init(...options) {
   }
 
   /**
-   * Remove views folder recursively
+   * Remove views folder recursively from src directory
    */
-  fs.rmdir(`${currentPath}/src/views`, (err) => {
-    if (err) return console.log(err)
-    console.log(chalk.green(`Removed views folder`))
-  })
+  rm(`${currentPath}/src/views`)
+
+  /**
+   * Create core module files
+   */
+  
 }
 
 module.exports = init
