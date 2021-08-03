@@ -23,7 +23,7 @@ function createAppCore(coreDirPath) {
   const existingContents = ls(coreDirPath).filter(content => typeof content === 'string')
 
   for (const content of appCoreContents) {
-    const contentPath = path.resolve(__dirname, `../docs/${content}`)
+    const contentPath = path.resolve(__dirname, `../docs/core/${content}`)
     const fileStatus = fs.lstatSync(contentPath)
 
     if (!existingContents.includes(content)) {
