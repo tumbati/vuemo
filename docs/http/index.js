@@ -7,13 +7,16 @@ axios.interceptors.request.use(request => {
    * 
    * Override the request before it is sent
    * 
+   * @example
    *  const HttpHeaders = {
         withCredentials: true,
         'Content-Type': 'application/json',
         authorization: localStorage.getItem('token')
       }
    */
-    
+
+  const HttpHeaders = {} // Replace this with your config
+
 
   if (request.headers.authorization) {
     HttpHeaders.authorization = request.headers.authorization
