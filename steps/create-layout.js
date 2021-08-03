@@ -1,4 +1,6 @@
-const { ls } = require('shelljs')
+const { ls,  } = require('shelljs')
+const path = require('path')
+const fs = require('fs')
 
 /**
  * `createLayout`
@@ -8,14 +10,24 @@ const { ls } = require('shelljs')
  * @param {string} layoutsDirPath Path for layouts directory
  */
 function createLayout(layoutsDirPath) {
-  const defaultLayouts = [
-    'BootstrapLayout.vue',
-    'DefaultLayout.vue'
-  ]
+  try {
+    const defaultLayouts = [
+      'BootstrapLayout.vue',
+      'DefaultLayout.vue'
+    ]
+    const existingLayouts = ls(layoutsDirPath).filter(file => typeof file === 'string')
 
-  const existingLayouts = ls(layoutsDirPath).filter(file => typeof file === 'string')
+    for (const layout of defaultLayouts) {
+      const source = path.resolve(__dirname, `../docs/layouts/${layout}`)
+      const fileStats = fs.lstatSync()
 
-  console.log(existingLayouts)
+      if (!existingLayouts.includes(layout)) {
+        console.log(source)
+      }
+    }
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 module.exports = createLayout
