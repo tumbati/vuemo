@@ -2,6 +2,13 @@ const fs = require('fs')
 const { ls, cp } = require('shelljs')
 const path = require('path')
 
+/**
+ * `createAppCore`
+ * 
+ * Initializes application core module
+ * 
+ * @param {string} coreDirPath Core directory path
+ */
 function createAppCore(coreDirPath) {
   const appCoreContents = [
     'http',
