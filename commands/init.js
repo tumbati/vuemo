@@ -5,6 +5,8 @@ const fse = require('fs-extra')
 const currentPath = process.cwd()
 const emoji = require('node-emoji')
 
+const steps = require('../steps')
+
 function init(...options) {
   const directories = ls('dir')
 
@@ -49,7 +51,7 @@ function init(...options) {
    * Move core folders and files into src folder
    */
   for (const element of srcContents) {
-    const movingContents = ['assets', 'components', 'router', 'store', 'store.js', 'router.js']
+    const movingContents = ['components', 'router', 'store', 'store.js', 'router.js']
 
     if (movingContents.includes(element)) {
       const isDir = fs.statSync(`${currentPath}/src/${element}`).isDirectory()
@@ -89,7 +91,7 @@ function init(...options) {
   /**
    * Create core module files
    */
-  
+  steps.createCore(`${currentPath}/src/core`)
 }
 
 module.exports = init
