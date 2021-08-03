@@ -1,4 +1,5 @@
-const { ls } = require('shelljs')
+const { ls, cp } = require('shelljs')
+const path = require('path')
 
 function createAppCore(coreDirPath) {
   const appCoreContents = [
@@ -15,10 +16,10 @@ function createAppCore(coreDirPath) {
   const existingContents = ls(coreDirPath).filter(content => typeof content === 'string')
 
   for (const content of appCoreContents) {
-    if (!existingContents.includes(content)) {
-      if (content.endsWith('.js')) {
-        
-      }
+    if (!existingContents.includes(content) && content.endsWith('.js')) {
+      // Copy the api.js file from docs to the core directory
+      const jsPath = path.resolve(__dirname, `../docs/${content}`)
+      cp(jsPath, coreDirPath)
     }
   }
 }
