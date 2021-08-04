@@ -19,7 +19,6 @@ function createLayout(layoutsDirPath) {
 
     for (const layout of defaultLayouts) {
       const source = path.resolve(__dirname, `../docs/layouts/${layout}`)
-      // const fileStats = fs.lstatSync(source)
 
       if (!existingLayouts.includes(layout)) {
         cp(source, layoutsDirPath)
