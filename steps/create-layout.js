@@ -1,11 +1,11 @@
-const { ls,  } = require('shelljs')
+const { ls, cp } = require('shelljs')
 const path = require('path')
 const fs = require('fs')
 
 /**
  * `createLayout`
  * 
- * Initialized application bootstrap layout and a default layout
+ * Initializes application bootstrap layout and a default layout
  * 
  * @param {string} layoutsDirPath Path for layouts directory
  */
@@ -19,10 +19,10 @@ function createLayout(layoutsDirPath) {
 
     for (const layout of defaultLayouts) {
       const source = path.resolve(__dirname, `../docs/layouts/${layout}`)
-      const fileStats = fs.lstatSync()
+      // const fileStats = fs.lstatSync(source)
 
       if (!existingLayouts.includes(layout)) {
-        console.log(source)
+        cp(source, layoutsDirPath)
       }
     }
   } catch (error) {
