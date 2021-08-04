@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Bootstrap from './layouts/Bootstrap'
+import Bootstrap from './layouts/BootstrapLayout'
 
 export default {
   name: 'App',
