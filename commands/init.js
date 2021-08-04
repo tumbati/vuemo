@@ -88,9 +88,9 @@ function init(...options) {
   //  */
   // rm(`${currentPath}/src/views`)
 
-  /**
-   * Create core module files
-   */
+  // /**
+  //  * Create core module files
+  //  */
   // steps.createCore(`${currentPath}/src/core`)
 
   /**
