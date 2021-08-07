@@ -7,7 +7,7 @@ function init(...options) {
   /**
    * Mount root directory structure
    */
-  steps.mountRoot()
+  steps.mountRoot(currentPath)
 
   /**
    * Remove views folder recursively from src directory
