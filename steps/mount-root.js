@@ -3,7 +3,7 @@ const chalk = require('chalk')
 const fs = require('fs')
 const fse = require('fs-extra')
 
-const mountRoot = () => {
+const mountRoot = currentPath => {
   const directories = ls('dir')
 
   if (!directories.includes('src')) {
