@@ -4,6 +4,9 @@ const currentPath = process.cwd()
 const steps = require('../steps')
 
 function init(...options) {
+  /**
+   * Mount root directory structure
+   */
   steps.mountRoot()
 
   /**
