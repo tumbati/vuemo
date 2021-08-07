@@ -1,9 +1,5 @@
-const {ls, rm} = require('../lib')
-const chalk = require('chalk')
-const fs = require('fs')
-const fse = require('fs-extra')
+const { rm } = require('../lib')
 const currentPath = process.cwd()
-const emoji = require('node-emoji')
 
 const steps = require('../steps')
 
