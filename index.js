@@ -11,4 +11,9 @@ program
   .description('Initialize a new modular architecture')
   .action(commands.init)
 
+program
+  .command('generate')
+  .description('Generates and/or modifies files based on a schematic.')
+  .action(commands.generate)
+
 program.parse(process.argv)
