@@ -14,7 +14,8 @@ program
 program
   .command('generate')
   .description('Generates and/or modifies files based on a schematic.')
-  .option('m, module <name>', 'Generate module')
+  .option('m, module <name>', 'Generate module with specified name')
+  
   .action(commands.generate)
 
 program.parse(process.argv)
