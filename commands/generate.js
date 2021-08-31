@@ -7,9 +7,22 @@ const generate = () => {
 
   switch (schema) {
     case 'module': case 'm':
-      if (!currentPath.endsWith('/modules')) {
+      if (currentPath.endsWith('/modules')) {
         const warn = chalk.red(`Cannot find ${chalk.bold('modules')} folder`)
         console.log(warn)
+      } else {
+        const moduleName = schemaName.charAt(0).toUpperCase()+schemaName.slice(1).toLowerCase()
+        const files = [
+          `${schemaName}-store.js`,
+          `${schemaName}-router.js`,
+          'index.js',
+          'components',
+          'pages',
+          'services',
+          `${moduleName}Module.vue`
+        ]
+
+        console.log(files)
       }
       break;
   }
