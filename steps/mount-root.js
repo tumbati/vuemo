@@ -2,6 +2,7 @@ const { ls, rm } = require('../lib')
 const chalk = require('chalk')
 const fs = require('fs')
 const fse = require('fs-extra')
+const emoji = require('node-emoji')
 
 const mountRoot = currentPath => {
   const directories = ls('dir')
