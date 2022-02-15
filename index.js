@@ -12,10 +12,10 @@ program
   .action(commands.init)
 
 program
-  .command('generate')
+  .command('generate, g')
   .description('Generates and/or modifies files based on a schematic.')
   .option('m, module <name>', 'Generate module with specified name')
-  
+
   .action(commands.generate)
 
 program.parse(process.argv)
