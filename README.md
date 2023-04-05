@@ -4,7 +4,7 @@ Vuemo is a command line tool for creating and managing vue modular application.
 
 ## Installation
 Clone the repository and go into the vuemo directory to install the package globally.
-Use the package manager [npm](https://www.npmjs.com) to install Vuemo.
+Use node package manager [npm](https://www.npmjs.com) to install Vuemo.
 
 1. Got into the project directory
 ```bash
