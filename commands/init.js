@@ -3,26 +3,27 @@ const currentPath = process.cwd()
 
 const steps = require('../steps')
 
-function init(...options) {
-  /**
-   * Mount root directory structure
-   */
-  steps.mountRoot(currentPath)
+function init(flag, ...options) {
+  console.log(flag)
+  // /**
+  //  * Mount root directory structure
+  //  */
+  // steps.mountRoot(currentPath)
 
-  /**
-   * Remove views folder recursively from src directory
-   */
-  rm(`${currentPath}/src/views`)
+  // /**
+  //  * Remove views folder recursively from src directory
+  //  */
+  // rm(`${currentPath}/src/views`)
 
-  /**
-   * Create core module files
-   */
-  steps.createCore(`${currentPath}/src/core`)
+  // /**
+  //  * Create core module files
+  //  */
+  // steps.createCore(`${currentPath}/src/core`)
 
-  /**
-   * Create application bootstrap layout and default layout
-   */
-  steps.createLayout(`${currentPath}/src/layouts`)
+  // /**
+  //  * Create application bootstrap layout and default layout
+  //  */
+  // steps.createLayout(`${currentPath}/src/layouts`)
 }
 
 module.exports = init

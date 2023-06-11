@@ -5,26 +5,26 @@ import App from './App.vue'
 /**
  * Application Core
  */
-import store from './core/store'
-import router from './core/router'
+import store from './js/core/store'
+import router from './js/core/router'
 
 /**
  * Global application filters
  */
-import filters from './core/filters'
+import filters from './js/core/filters'
 
 
 /**
  * Global Properties Register
  */
-import { registerGlobalProperties } from './core/helpers/common'
+import { registerGlobalProperties } from './js/core/utils/common'
 
 
 /**
  * Add your custom components for global registration
- * 
+ *
  * @example
- * 
+ *
  * import Dialogs from './core/dialogs'
  */
 

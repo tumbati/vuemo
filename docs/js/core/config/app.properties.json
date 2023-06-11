@@ -1,0 +1,21 @@
+{
+  "appName": "vuemo",
+  "development": {
+    "api": {
+      "v1": {
+        "host": "localhost",
+        "port": 3000,
+        "protocol": "http"
+      }
+    }
+  },
+
+  "production": {
+    "api": {
+      "v1": {
+        "url": "api.example.com",
+        "protocol": "https"
+      }
+    }
+  }
+}
