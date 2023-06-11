@@ -4,12 +4,18 @@ const fs = require('fs')
 const fse = require('fs-extra')
 const emoji = require('node-emoji')
 
-const mountRoot = currentPath => {
+/**
+ * `mountRoot`
+ * Mounts root directory structure
+ * @param {string} cwd Current Working Directory/current path
+ * @returns void
+ */
+const mountRoot = cwd => {
   const directories = ls('dir')
 
   if (!directories.includes('src')) {
     const src = chalk.bold.green('src')
-    console.log(chalk.red(`Cannot find ${src} folder`))
+    console.log(chalk.red(`=> Cannot find ${src} folder`))
     return
   }
 
@@ -19,7 +25,7 @@ const mountRoot = currentPath => {
   for (const file of importantFiles) {
     if (!srcContents.includes(file)) {
       const fileName = chalk.bold.green(file)
-      console.log(chalk.red(`Cannot find ${fileName} file`))
+      console.log(chalk.red(`=> Cannot find ${fileName} file`))
       return
     }
   }
@@ -31,7 +37,7 @@ const mountRoot = currentPath => {
   const modularRootDirectories = ['core', 'modules', 'layouts']
   for (const dir of modularRootDirectories) {
     if (!srcContents.includes(dir)) {
-      fs.mkdir(`${currentPath}/src/${dir}`, (err) => {
+      fs.mkdir(`${cwd}/src/${dir}`, (err) => {
         if (err) {
           console.log(err)
           return
@@ -51,14 +57,14 @@ const mountRoot = currentPath => {
     const movingContents = ['components', 'router', 'store', 'store.js', 'router.js']
 
     if (movingContents.includes(element)) {
-      const isDir = fs.statSync(`${currentPath}/src/${element}`).isDirectory()
+      const isDir = fs.statSync(`${cwd}/src/${element}`).isDirectory()
 
       if (['router', 'store'].includes(element) && isDir) {
         // If file is router or store and is directory, move contents
         const contents = ls({ path: `/src/${element}`, filter: null })
         for (const content of contents) {
-          const source = `${currentPath}/src/${element}/${content}`
-          const destination = `${currentPath}/src/core/${element}.js`
+          const source = `${cwd}/src/${element}/${content}`
+          const destination = `${cwd}/src/core/${element}.js`
           fs.renameSync(source, destination, (err) => {
             if (err) return console.log(err)
             console.log(chalk.green(`${emoji.get('file')}: moved ${content} as ${element}.js to core`))
@@ -66,11 +72,11 @@ const mountRoot = currentPath => {
         }
 
         // Remove directory
-        fs.rmdirSync(`${currentPath}/src/${element}`)
+        fs.rmdirSync(`${cwd}/src/${element}`)
       } else {
         // Move directory to src/core
-        const source = `${currentPath}/src/${element}`
-        const destination = `${currentPath}/src/core/${element}`
+        const source = `${cwd}/src/${element}`
+        const destination = `${cwd}/src/core/${element}`
 
         fse.move(source, destination, (err) => {
           if (err) return console.log(err)
