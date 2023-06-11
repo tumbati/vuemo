@@ -1,7 +1,12 @@
 const chalk = require('chalk')
+const cwd = process.cwd()
+const { rm } = require('../lib')
 
 function mountTypeScriptProject() {
-
+  /**
+   * Remove views folder recursively from src directory
+   */
+  rm(`${cwd}/src/views`)
 }
 
 function mountJavaScriptProject() {
@@ -22,8 +27,8 @@ function init(flag) {
   }
 
   if (options.includes('ts') && options.includes('js')) {
-    console.log(chalk.white(chalk.red('You can only choose one, either JavaScript or TypeScript')))
-    console.log(chalk.white(chalk.red('For example: `vuemo init --ts`')))
+    console.log(chalk.red('You can only choose one, either JavaScript or TypeScript'))
+    console.log(chalk.red('For example: `vuemo init --ts`'))
     return
   }
 
