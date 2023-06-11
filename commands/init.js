@@ -1,12 +1,23 @@
 const chalk = require('chalk')
 const cwd = process.cwd()
 const { rm } = require('../lib')
+const steps = require('../steps')
 
 function mountTypeScriptProject() {
   /**
    * Remove views folder recursively from src directory
    */
   rm(`${cwd}/src/views`)
+
+  /**
+   * Mount root directory structure
+   */
+  steps.mountRoot(cwd)
+
+  /**
+   * Create core module files
+   */
+  steps.createCore(`${cwd}/src/core`)
 }
 
 function mountJavaScriptProject() {
