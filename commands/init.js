@@ -18,6 +18,11 @@ function mountTypeScriptProject() {
    * Create core module files
    */
   steps.createCore(`${cwd}/src/core`)
+
+  /**
+   * Create application bootstrap layout and default layout
+   */
+  steps.createLayout(`${cwd}/src/layouts`)
 }
 
 function mountJavaScriptProject() {
