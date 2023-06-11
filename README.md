@@ -22,7 +22,7 @@ npm install vuemo -g
 ```
 
 ## Usage
-Create a new project using [Vue3](https://v3.vuejs.org/) and then go into your project root directory run the following command
+Create a new project using [Vue3](https://vuejs.org/guide/quick-start.html#creating-a-vue-application/) and then go into your project root directory run the following command
 
 ```bash
 vuemo init
